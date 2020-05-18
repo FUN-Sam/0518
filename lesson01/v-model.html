@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 当我们在输入款输入内容的时候  因为input中的v-model绑定了message，所以会实时的将输入的内容传递给message，message会发生改变 -->
+    <!-- 当message发生改变的时候 因为上面我们使用了语法 将message的值传入到dom中  所以dom会发生响应的改变 -->
+    <!-- 原理  v-bind绑定了一个value的属性  v-on指令给当前的元素绑定了input的事件 -->
+    <div id="app">
+        <!-- 第一种写法 -->
+        <!-- <input v-model="message" /> -->
+        <!-- 第二种写法   当用户时时输入东西的时候把你输入的东西赋值给到message -->
+        <input type="text" v-bind:value="message" v-on:input="valuechange"> 
+        
+         <!-- 第三种写法 -->
+        <!-- <input type="text" :value="message" @input="message=$event.target.value"> -->
+        <div>{{message}}</div>
+    </div>
+</body>
+<script>
+    // 声明式编程
+    var vm = new Vue({
+        el: '#app',   //用于要挂载管理的元素
+        data() {
+            return {
+                message: '1323'
+            }
+        },
+        methods: {
+            valuechange: function (e) {
+                console.log(111)
+                console.log(e.target.value)
+                this.message = e.target.value;   //每次改变东西就来到这里  那我就给message赋个值  赋给你改的时时的值
+            }
+        }
+
+    })
+
+</script>
+
+</html>

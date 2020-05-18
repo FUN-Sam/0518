@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+    let showbtn = true; //if条件注意下   当变量不为false "" null undefined NaN 和0 的时候进if
+    if (showbtn) {
+        //创建节点
+        var btn = $("<button>点击我啊</button>")
+        btn.on("click", function () {
+            console.log("点击了")
+        })
+        $("#box").append(btn)
+    }
+
+</script>
+
+</html>

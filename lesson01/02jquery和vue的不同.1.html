@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <button v-if="showbtn" v-on:click="clickme">点击我啊</button>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            showbtn: true
+        },
+        methods: {
+            clickme: function () {
+                console.log("我被点击了")
+            }
+        }
+    })
+
+</script>
+
+</html>

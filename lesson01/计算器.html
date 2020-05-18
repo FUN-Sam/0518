@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>计数器：{{counter}}</h1>
+        <button v-on:click="add">+</button>
+        <button v-on:click="sub">-</button>
+    </div>
+</body>
+
+</html>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            counter: 0
+        },
+        methods: {
+            add() {
+                console.log("jiale")
+                this.counter++
+            },
+            sub() {
+                console.log("jianle")
+                this.counter--
+            }
+        }
+    })
+</script>

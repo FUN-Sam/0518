@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 如果if不成立 则else就成立  一般会配合if去使用 -->
+    <div id="box">
+        <h1 v-if="flag">我是一个h1</h1>
+        <h2 v-else>我是一个h2</h2>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            flag: false
+        }
+    })
+
+</script>
+
+
+
+
+</html>

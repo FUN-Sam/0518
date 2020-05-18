@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-show:后面跟表达式   如果为真true就显示  否则false就隐藏 
+    页面中会看到标签 false会设置一个display为none的属性
+    
+    -->
+    <div id="box">
+        <h1 v-show="flag">我是一个h1标签</h1>
+
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            flag: false   //false是隐藏 但是不同于v-if的是整个标签没有消失 只是添加了一个display="none"的属性而已
+        }
+    })
+
+
+    // v-if  和v-show的区别？
+    // v-if当为false的时候  v-if不会创建标签  而v-show则会创建标签同时设置display为none的属性
+    //v-if会频繁的创建标签和删除标签  切换消耗更高
+    //v-show 只是简单的设置样式的显示和隐藏
+    //应用场景：页面中需要频繁的设置显示隐藏的话使用v-show    如果只是一次性的控制元素的显示和隐藏则用v-if
+
+</script>
+
+</html>

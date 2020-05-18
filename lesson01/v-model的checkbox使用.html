@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <label for="">
+            <input type="checkbox" id="agree" v-model="isAgree">同意协议
+        </label>
+        <h2>您选择的是:{{isAgree}}</h2>
+        <!-- 同意了可以点击下一步的按钮  否则就不可以点击 -->
+        <button v-bind:disabled="!isAgree">下一步</button>
+    </div>
+</body>
+
+</html>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "你好啊",
+            isAgree: false
+        }
+    })
+
+</script>

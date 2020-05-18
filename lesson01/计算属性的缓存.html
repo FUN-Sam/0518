@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <!-- 直接拼接 -->
+        <h1>{{firstname}} {{lastname}}</h1>
+        <h1>{{firstname+ " " +lastname}}</h1>
+        <!-- 调用函数通过定义methods -我要是调用多次 他就调用多次 -->
+        <h1>{{getfullname()}}</h1>
+        <!-- 计算属性 调用一次  性能好一些 -->
+        <h2>{{fullname}}</h2>
+    </div>
+</body>
+
+</html>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            firstname: "李",
+            lastname: "子贤"
+        },
+        //计算属性  看起来是个函数 其实是个属性 运用的时候不用加上小括号的
+        //计算属性一般是没有set方法的  一般我们给删除掉的
+        computed: {
+            fullname: {
+                set: function (newvalue) {
+                    console.log("~~~~~~~~~", newvalue);
+                    const names = newvalue.split("");
+                    this.firstname = names[0];
+                    this.lastname = names[1]
+                },
+                get: function () {
+                    return this.firstname + " " + this.lastname
+                }
+            }
+
+            //简洁的写法  直接这样写
+            // fullname: function () {
+            //     return this.firstname + " " + this.lastname
+            // }
+        },
+        methods: {
+            getfullname: function () {
+                return this.firstname + " " + this.lastname
+            }
+        }
+    })
+</script>

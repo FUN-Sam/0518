@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 单选 -->
+        <!-- <select name="abc"  v-model="fruit">
+            <option value="香蕉">香蕉</option>
+            <option value="葡萄">葡萄</option>
+            <option value="榴莲">榴莲</option>
+            <option value="西瓜">西瓜</option>
+        </select> -->
+        <!-- <h2>您选择的水果是{{fruit}}</h2> -->
+        <!-- 多选 -->
+        <select name="abc" v-model="fruits" multiple>
+            <option value="香蕉">香蕉</option>
+            <option value="葡萄">葡萄</option>
+            <option value="榴莲">榴莲</option>
+            <option value="西瓜">西瓜</option>
+        </select>
+        <h2>您选择的水果是{{fruits}}</h2>
+
+
+
+        <!-- <select v-model='workplaces' multiple>
+            <option v-for='city in cities' :value='city.value'>
+                {{city.text}}
+            </option>
+        </select>
+        <p>workplace: {{ workplaces.join('|') }}</p> -->
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            fruit: "西瓜",
+            fruits: [],
+            cities: [
+                { text: '西安', value: '西安' },
+                { text: '洛阳', value: '洛阳' },
+                { text: '南京', value: '南京' },
+                { text: '北京', value: '北京' }
+            ],
+            workplaces: []
+
+        }
+    })
+</script>

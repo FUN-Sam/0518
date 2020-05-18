@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <h1 id="app">
+        {{msg}}转为{{msg.split("").reverse().join("")}}
+    </h1>
+</body>
+<script>
+    let a = "hello";
+    console.log(a)
+    let b = a.split("")
+    console.log(b)   //["h", "e", "l", "l", "o"]
+    let c = b.reverse()
+    console.log(c)   //["o", "l", "l", "e", "h"]
+    let d = c.join("")
+    console.log(d)   //olleh
+
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "hello"
+        }
+    })
+
+</script>
+
+</html>

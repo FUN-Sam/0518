@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- v-text没有闪烁的问题不能方便的在前后增加内容展示是替换的 -->
+    <div id="app" v-cloak>
+        <h1>{{message}},朱小双</h1>
+        <h2 v-text="message">朱小双</h2>
+        <h2>{{tagvalue}}</h2>
+        <h2 v-text="tagvalue"></h2>
+        <h2 v-html="tagvalue"></h2>
+        <div>{{info}}</div>
+        <div v-once>{{info}}</div>
+        <input type="text" v-model="info">
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好啊",
+            tagvalue:"<h3>我是一个标签啊</h3>",
+            info:"hhaha"
+
+            
+            
+        }
+    })
+</script>
+
+</html>

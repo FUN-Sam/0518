@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style>
+       .div1{
+           border:1px solid red;
+           width:300px;
+       }
+       .div2{
+           border:1px solid yellow;
+           width:300px;
+       }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <!-- <h1>{{firstname}} {{lastname}}</h1>
+        <h1>{{firstname+ " " +lastname}}</h1>
+        <h1>{{getfullname()}}</h1>
+        <h1>{{fullname}}</h1> -->
+        <input type="text" v-model="firstname">
+        <input type="text" v-model="lastname">
+        <div class="div1">
+          methods:  {{getfullname()}} {{getfullname()}} {{getfullname()}}
+        </div>
+        <div class="div2">
+         computed:   {{fullname}}   {{fullname}}  {{fullname}}
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            firstname: "",
+            lastname: ""
+        },
+        //计算属性computed  看起来是个函数 其实是个属性 运用的时候不用加上小括号的
+        //computed的是属于一个属性的调用  methods是一个函数的调用
+        //computed带有缓存的功能  当页面渲染的时候 只要值没有改变 直接取的是上一次缓存的值 但是函数每一次都会重新调用
+        //watch :没有缓存的 主要用于侦听属性 一般用于异步或者开销比较大的操作
+        //watch用于一个数据发生变化时 改变多个数据
+        computed: {
+            fullname: function () {
+                console.log("computed")
+                return this.firstname + " " + this.lastname
+               
+            }
+        },
+        methods: {
+            getfullname: function () {
+                console.log("methods")
+                return this.firstname + " " + this.lastname
+              
+              
+            }
+        },
+        watch:{
+            //监听firstname   当firstname发生改变的时候触发这个watch
+            //而watch里监听的属性必须是已存在的，其要么是data里的属性，要么是computed里计算出来的属性。
+            firstname:function(newvalue,oldvalue){
+                console.log("watch");
+                console.log(this.firstname,newvalue,oldvalue)
+            }
+        }
+    
+    })
+</script>

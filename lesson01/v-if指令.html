@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- vue指令:带有v-前缀的特殊属性
+    v-if v-else v-for v-bind v-on v-model v-show....
+    一个标签内可以有多个指令 使用空格隔开即可
+    比如说
+    <input type="text" v-if="" v-model="">
+    v-if跟一个表达式 如果成立为true就显示 否则false就隐藏 -- 页面中没有该标签出现> -->
+    <div id="box">
+        <p v-if="flag">我是一个p标签</p>
+    </div>
+
+
+</body>
+<script>
+    let vm = new Vue({
+        el: "#box",
+        data: {
+            flag: true   //如果是false页面中不会显示出来 整个p标签也没有
+        }
+    })
+</script>
+
+</html>

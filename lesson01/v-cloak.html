@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-cloak指令：
+        作用：防止页面闪烁 -->
+    <!-- 在网络不好或加载数据过大的情况下，页面在渲染的过程会闪烁Mustache 标签：
+        为了用户有更好的优化体验，Vue加入了延缓响应的指令v-cloak,在与css:[v-cloak] { display: none } 的配合下，
+        可以隐藏未编译 Mustache 的标签直到实例准备完毕，v-cloak属性才会被自动去除，对应的标签也才可见了。 -->
+    <!-- 代码运行，在2000ms前页面显示的是{{ msg }}。
+    现在往<span>{{ msg }}</span>中添加v-cloak指令，在运行代码：
+    前2000ms页面为空，2000ms后出现hello vue，解决了在实例挂载之前，页面闪现Mustache 标签的尴尬问题。 -->
+    <div id="app" v-cloak>
+        <h1>{{message}}</h1>
+    </div>
+</body>
+<script>
+    setTimeout(function () {
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好啊",
+            }
+        })
+    }, 2000)
+
+</script>
+
+</html>

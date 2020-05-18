@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+ 
+
+<head>
+     
+    <meta charset="UTF-8">
+     
+    <meta name="Generator" content="EditPlus®">
+     
+    <meta name="Author" content="">
+     
+    <meta name="Keywords" content="">
+     
+    <meta name="Description" content="">
+      <title>父子组件的数据传递</title>
+     
+    <script src="js/vue.js"></script>
+     </head>
+ 
+
+<body>
+    <div id="root">
+        <counter :count="2" @inc="handleIncrease"></counter>
+        <counter :count="5" @inc="handleIncrease"></counter>
+        <div>{{total}}</div>
+            <counter @click.native="handleClick">给组件绑定原生事件，父组件写方法</counter>
+    </div>
+
+
+
+
+
+
+    <script>
+
+
+        var counter = {
+            props: ['count'],
+            data: function () {
+                return {
+                    number: this.count
+                }
+            },
+            template: '<div @click="handleClick">{{number}}</div>',
+            methods: {
+                handleClick: function () {
+                    this.number++;
+                    this.$emit('inc', 1)
+                }
+            }
+        }
+
+
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                total: 7
+            },
+            components: {
+                counter: counter
+            },
+            methods: {
+                handleIncrease: function (step) {
+                    this.total += step
+                }
+            }
+
+
+        })
+
+
+    </script>

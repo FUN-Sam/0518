@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <!-- <div id="app">
+        <p v-for="(item,i) in list">素引值：{{i}}----每一项{{item}}</p>
+
+    </div> -->
+
+
+    <!-- <div id="app">
+        <p v-for="item in list">{{ item.id }}------{{ item.name }}</p>
+    </div> -->
+
+    <div id="app">
+        <p v-for="(val,key) in user">值：{{ val }}---------健：{{ key }}</p>
+    </div>
+</body>
+<script>
+    // let vm = new Vue({
+    //     el: "#app",
+    //     data: {
+    //         list: [1, 2, 3, 4, 5]
+    //     }
+    // })              循环普通的数组
+
+
+
+
+    // var vm = new Vue({
+    //     el: '#app',
+    //     data: {
+    //         list: [
+    //             { id: 1, name: '111' },
+    //             { id: 2, name: '222' },
+    //             { id: 3, name: '333' },
+    //             { id: 4, name: '444' }
+    //         ]
+    //     }
+    // })       循环对象数组
+
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            user: {
+                id: 1,
+                name: 'abc',
+                gender: '男'
+            }
+        }
+    })    //循环对象
+</script>
+
+</html>
